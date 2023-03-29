@@ -57,5 +57,5 @@ public class IndicadorIMC extends IndicadoresSalud{
         return "BAJO DE PESO";
     }
     
-
+    
 }
