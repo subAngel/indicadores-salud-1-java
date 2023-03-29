@@ -20,6 +20,8 @@ public class Usuario {
     private String password;
     private Integer idUser;
     private int edad;
+    private double estatura;
+    private double peso;
 
     public Usuario() {
 
@@ -102,6 +104,19 @@ public class Usuario {
         }
         //Regresa la edad en base a la fecha de nacimiento
         this.edad = año;
+    }
+    
+    public void setEstatura(double estatura){
+        this.estatura = estatura;
+    }
+    public double getEstatura(){
+        return this.estatura;
+    }
+    public void setPeso(double peso){
+        this.peso = peso;
+    }
+    public double getPeso(){
+        return this.peso;
     }
 
 }

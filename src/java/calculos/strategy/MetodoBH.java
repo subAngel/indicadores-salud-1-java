@@ -25,7 +25,7 @@ public class MetodoBH implements CaloriasRequeridas{
     public double calculo_kc(IndicadorCaloriasReq IS) {
         TipoActividad actividad = new TipoActividad();
         char sexo = IS.getUsuario().getSexo();
-        double BMR = IS.getPeso() * 24;
+        double BMR = IS.getUsuario().getPeso()* 24;
         if(sexo == 'M')
             return BMR * 0.9 * actividad.getFactor(sexo, IS.getFactorActividad()); ;
 //            return BMR * 0.9 * IS.get

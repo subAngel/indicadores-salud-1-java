@@ -19,7 +19,7 @@ public class MetodoCS implements CaloriasRequeridas{
     */
     @Override
     public double calculo_kc(IndicadorCaloriasReq IS) {
-        double peso = IS.getPeso(); 
+        double peso = IS.getUsuario().getPeso(); 
         return peso * 35 + .2;
     }
     

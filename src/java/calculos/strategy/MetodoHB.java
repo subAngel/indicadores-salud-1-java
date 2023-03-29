@@ -21,8 +21,8 @@ public class MetodoHB implements CaloriasRequeridas {
         char sexo = IS.getUsuario().getSexo();
         int factor = IS.getFactorActividad();
         if (sexo == 'M')
-            return (655 + (9.6 * IS.getPeso()) + (1.8 * IS.getEstatura()) - (4.7 * IS.getUsuario().getEdad())) * actividad.getFactor(sexo, IS.getFactorActividad());
-        return (66 + (13.7  * IS.getPeso()) + (5 * IS.getEstatura()) - (6.8*IS.getUsuario().getEdad())) * actividad.getFactor(sexo, IS.getFactorActividad());
+            return (655 + (9.6 * IS.getUsuario().getPeso()) + (1.8 * IS.getUsuario().getEstatura()) - (4.7 * IS.getUsuario().getEdad())) * actividad.getFactor(sexo, IS.getFactorActividad());
+        return (66 + (13.7  * IS.getUsuario().getPeso()) + (5 * IS.getUsuario().getEstatura()) - (6.8*IS.getUsuario().getEdad())) * actividad.getFactor(sexo, IS.getFactorActividad());
     }
 
 }

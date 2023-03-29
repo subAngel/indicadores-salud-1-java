@@ -13,7 +13,7 @@ import org.eclipse.jdt.internal.compiler.ast.SuperReference;
  * @author Angel Jesus Zorrilla Cuevas
  */
 public class IndicadorIMC extends IndicadoresSalud{
-    private double estatura, peso;
+//    private double estatura, peso;
     private String situacion;
     
     public IndicadorIMC(){
@@ -21,25 +21,10 @@ public class IndicadorIMC extends IndicadoresSalud{
     }
     
     public double getIMC(){
-        return this.getPeso() / Math.pow(this.getEstatura()/100, 2);
+        return this.getUsuario().getPeso() / Math.pow(this.getUsuario().getEstatura()/100, 2);
     }
 
-    public double getEstatura() {
-        return estatura;
-    }
-
-    public void setEstatura(double estatura) {
-        this.estatura = estatura;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
+   
 
     public String getSituacion() {
         double imc = getIMC();
