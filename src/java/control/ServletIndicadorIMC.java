@@ -37,25 +37,20 @@ public class ServletIndicadorIMC extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession sesion = request.getSession();
-//        ArrayList<IndicadorIMC> arreglo = ;
-//        
-//        if (arreglo == null) {
-//            arreglo = new ArrayList<IndicadorIMC>();
-//        }else {
-//            arreglo = (ArrayList<IndicadorIMC>) sesion.getAttribute("resultadosIMC");
-//        }
-        
+
+        Usuario user = (Usuario) sesion.getAttribute("usuario");
         
         double peso = Double.parseDouble(request.getParameter("peso"));
         double estatura = Double.parseDouble(request.getParameter("estatura"));
-        Usuario user = (Usuario) sesion.getAttribute("usuario");
-        
+        user.setEstatura(estatura);
+        user.setPeso(peso);
         
         IndicadorIMC indicadorIMC = new IndicadorIMC();
+        indicadorIMC.setEstatura(estatura);
+        indicadorIMC.setPeso(peso);
         
         indicadorIMC.setUsuario(user);
-//        indicadorIMC.setEstatura(estatura);
-//        indicadorIMC.setPeso(peso);
+
         
         
         sesion.setAttribute("indicadorIMC", indicadorIMC);

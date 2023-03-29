@@ -4,6 +4,7 @@
     Author     : Angel Jesus Zorrilla Cuevas
 --%>
 
+<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,13 +14,17 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            HttpSession sesion = request.getSession();
+            Usuario usuario = (Usuario)sesion.getAttribute("usuario");
+        %>
         <h1>Indice de Masa Corporal</h1>
         <div class="form">
             <form action="ServletIndicadorIMC">
                     <label for="peso">Peso: </label>
-                    <input type="number" id="peso" placeholder="kilogramos" name="peso">
+                    <input type="number" id="peso" placeholder="kilogramos" name="peso" value="<%= usuario.getPeso() %>">
                     <label for="estatura">Estatura: </label>
-                    <input type="number" name="estatura" id="estatura" placeholder="centimetros">
+                    <input type="number" name="estatura" id="estatura" placeholder="centimetros" value="<%= usuario.getEstatura()%>">
                     <button>
                         Calcular
                     </button>

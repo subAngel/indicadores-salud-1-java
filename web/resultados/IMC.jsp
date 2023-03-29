@@ -25,7 +25,7 @@
             } else {
                 resultadosIMC = (ArrayList<IndicadorIMC>) sesion.getAttribute("resultadosIMC");
             }
-            resultadosIMC.add(imc);
+            resultadosIMC.add(imc); 
             sesion.setAttribute("resultadosIMC", resultadosIMC);
         %>
         <h1>
@@ -40,11 +40,11 @@
             <tbody>
                 <tr>
                     <td>Peso</td>
-                    <td><%= imc.getPeso()%> kg</td>
+                    <td><%= imc.getPeso() %> kg</td>
                 </tr>
                 <tr>
                     <td>Estatura</td>
-                    <td><%= imc.getEstatura()%> cm</td>
+                    <td><%= imc.getEstatura() %> cm</td>
                 </tr>
                 <tr>
                     <td>IMC</td>
@@ -79,7 +79,7 @@
                 for (IndicadorIMC r : resultadosIMC) {
             %>
             <tr>
-                <td><%= r.getPeso()%></td>
+                <td><%= r.getPeso() %></td>
                 <td><%= r.getEstatura()%></td>
                 <td><%= String.format("%.3f", r.getIMC())%></td>
                 <td><%= r.getSituacion()%></td>

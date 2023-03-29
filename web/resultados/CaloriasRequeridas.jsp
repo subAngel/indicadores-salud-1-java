@@ -40,11 +40,11 @@
             <tbody>
                 <tr>
                     <td>Peso</td>
-                    <td><%= calorias.getPeso()%></td>
+                    <td><%= calorias.getUsuario().getPeso()%></td>
                 </tr>
                 <tr>
                     <td>Estatura</td>
-                    <td><%= calorias.getEstatura()%></td>
+                    <td><%= calorias.getUsuario().getEstatura()%></td>
                 </tr>
                 <tr>
                     <td>Calorias Requeridas</td>
@@ -71,8 +71,8 @@
                 for (IndicadorCaloriasReq r : resultadosCalorias) {
             %>
             <tr>
-                <td><%= r.getPeso()%></td>
-                <td><%= r.getEstatura()%></td>
+                <td><%= r.getUsuario().getPeso()%></td>
+                <td><%= r.getUsuario().getEstatura()%></td>
                 <td><%= String.format("%.3f", r.getCaloriasRequeridas())%></td>
                 <td><%= r.getFecha()%></td>
             </tr>
