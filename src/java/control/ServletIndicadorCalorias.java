@@ -63,8 +63,8 @@ public class ServletIndicadorCalorias extends HttpServlet {
         }
         
         calorias.setUsuario(user);
-        calorias.setEstatura(estatura);
-        calorias.setPeso(peso);
+//        calorias.setEstatura(estatura);
+//        calorias.setPeso(peso);
         calorias.setFactorActividad(numActividad);
         calorias.setCaloriasRequeridas(strategy);
         

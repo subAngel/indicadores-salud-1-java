@@ -47,6 +47,8 @@ public class CrearUsuario extends HttpServlet {
             String password = request.getParameter("password");
             char sexo = request.getParameter("sexo").charAt(0);
             Date fechanac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fechanac"));
+            double peso = Double.parseDouble(request.getParameter("peso"));
+            double estatura = Double.parseDouble( request.getParameter("estatura"));
             user.setIdUser(1);
             user.setEdad(fechanac);
             user.setNombre(fullname);
@@ -54,6 +56,8 @@ public class CrearUsuario extends HttpServlet {
             user.setPassword(password);
             user.setFechaNacimiento(fechanac);
             user.setSexo(sexo);
+            user.setEstatura(estatura);
+            user.setPeso(peso);
             sesion.setAttribute("usuario", user);
             request.getRequestDispatcher("OpcionesIndicadores.jsp").forward(request, response);
             
