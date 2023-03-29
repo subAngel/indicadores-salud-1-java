@@ -4,9 +4,6 @@
  */
 package calculos;
 
-import calculos.strategy.CaloriasRequeridas;
-import calculos.strategy.MetodoBH;
-import org.eclipse.jdt.internal.compiler.ast.SuperReference;
 
 /**
  *
@@ -39,8 +36,6 @@ public class IndicadorIMC extends IndicadoresSalud{
     public void setPeso(double peso) {
         this.peso = peso;
     }
-    
-   
 
     public String getSituacion() {
         double imc = getIMC();
