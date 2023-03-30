@@ -4,6 +4,7 @@
     Author     : Angel Jesus Zorrilla Cuevas
 --%>
 
+<%@page import="adapters.FechaDate"%>
 <%@page import="model.Usuario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="calculos.IndicadorIMC"%>
@@ -29,11 +30,14 @@
             }
             resultadosIMC.add(imc);
             sesion.setAttribute("resultadosIMC", resultadosIMC);
+
+// ADAPTER
+            FechaDate fecha = new FechaDate(imc.getFecha());
         %>
         <h1>
             Resultados IMC
         </h1>
-        
+
         <table class="resultado">
             <thead>
                 <tr>
@@ -55,11 +59,11 @@
                 </tr>
                 <tr>
                     <td>Situacion</td>
-                    <td><%= imc.getSituacion() %></td>
+                    <td><%= imc.getSituacion()%></td>
                 </tr>
                 <tr>
                     <td>Fecha</td>
-                    <td><%= imc.getFecha()%></td>
+                    <td><%= imc.FormatearFecha(fecha) %></td>
                 </tr>
             </tbody>
         </table>

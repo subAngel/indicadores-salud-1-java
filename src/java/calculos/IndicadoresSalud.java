@@ -44,7 +44,7 @@ public abstract class IndicadoresSalud {
     @param f fecha de Fecha
     @return fecha formateada adfa
     */
-    public String getFecha(Fecha f){
+    public String FormatearFecha(Fecha f){
         return String.format("%d/%d/%d %d:%d", f.getDia(), f.getMes(), f.getDia(), f.getHora(), f.getMinuto());
     }
 }
