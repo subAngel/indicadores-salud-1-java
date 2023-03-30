@@ -84,13 +84,14 @@
         <tbody>
             <%
                 for (IndicadorIMC r : resultadosIMC) {
+                FechaDate fds = new FechaDate(r.getFecha());
             %>
             <tr>
                 <td><%= r.getPeso()%></td>
                 <td><%= r.getEstatura()%></td>
                 <td><%= String.format("%.3f", r.getIMC())%></td>
                 <td><%= r.getSituacion()%></td>
-                <td><%= r.getFecha()%></td>
+                <td><%= r.FormatearFecha(fds) %></td>
             </tr>
             <%
                 }
