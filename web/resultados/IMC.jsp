@@ -18,6 +18,7 @@
         <%
             HttpSession sesion = request.getSession();
             IndicadorIMC imc = (IndicadorIMC) sesion.getAttribute("indicadorIMC");
+
 //            ArrayList<IndicadorIMC> resultados = (ArrayList<IndicadorIMC>) session.getAttribute("resultadosIMC");
             ArrayList<IndicadorIMC> resultadosIMC;
             if (session.getAttribute("resultadosIMC") == null) {
@@ -25,7 +26,7 @@
             } else {
                 resultadosIMC = (ArrayList<IndicadorIMC>) sesion.getAttribute("resultadosIMC");
             }
-            resultadosIMC.add(imc); 
+            resultadosIMC.add(imc);
             sesion.setAttribute("resultadosIMC", resultadosIMC);
         %>
         <h1>
@@ -34,17 +35,17 @@
         <table class="resultado">
             <thead>
                 <tr>
-                    <th colspan="2"><%= imc.getUsuario().getNombre()%></th>
+                    <th colspan="2"><%= imc.getUsuario().getNombre()%>, <%= imc.getUsuario().getEdad()%> años</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Peso</td>
-                    <td><%= imc.getPeso() %> kg</td>
+                    <td><%= imc.getPeso()%> kg</td>
                 </tr>
                 <tr>
                     <td>Estatura</td>
-                    <td><%= imc.getEstatura() %> cm</td>
+                    <td><%= imc.getEstatura()%> cm</td>
                 </tr>
                 <tr>
                     <td>IMC</td>
@@ -52,7 +53,7 @@
                 </tr>
                 <tr>
                     <td>Situacion</td>
-                    <td><%= imc.getSituacion()%></td>
+                    <td><%= imc.getUsuario().getSituacion() %></td>
                 </tr>
                 <tr>
                     <td>Fecha</td>
@@ -79,7 +80,7 @@
                 for (IndicadorIMC r : resultadosIMC) {
             %>
             <tr>
-                <td><%= r.getPeso() %></td>
+                <td><%= r.getPeso()%></td>
                 <td><%= r.getEstatura()%></td>
                 <td><%= String.format("%.3f", r.getIMC())%></td>
                 <td><%= r.getSituacion()%></td>

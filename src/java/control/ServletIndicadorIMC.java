@@ -35,27 +35,25 @@ public class ServletIndicadorIMC extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sesion = request.getSession();
 
         Usuario user = (Usuario) sesion.getAttribute("usuario");
-        
+
         double peso = Double.parseDouble(request.getParameter("peso"));
         double estatura = Double.parseDouble(request.getParameter("estatura"));
         user.setEstatura(estatura);
         user.setPeso(peso);
-        
+
         IndicadorIMC indicadorIMC = new IndicadorIMC();
         indicadorIMC.setEstatura(estatura);
         indicadorIMC.setPeso(peso);
-        
+        indicadorIMC.setIMC(user.imc());
         indicadorIMC.setUsuario(user);
 
-        
-        
         sesion.setAttribute("indicadorIMC", indicadorIMC);
         request.getRequestDispatcher("resultados/IMC.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

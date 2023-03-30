@@ -24,12 +24,14 @@ public class Adulto  extends Usuario{
         return new IMCAdultos();
     }
     
+    @Override
     public void setSituacion(){
         RIMC rango = getRangoIMC();
         rango.setSituacion(this.imc(), this.getEdad());
         this.situacion = rango.getSituacion();
     }
     
+    @Override
     public String getSituacion(){
         return this.situacion;
     }

@@ -25,12 +25,14 @@ public class Niña extends Usuario {
         return new IMCNiñas();
     }
 
+    @Override
     public void setSituacion() {
         RIMC rangos = getRangoIMC();
         rangos.setSituacion(this.imc(), this.getEdad());
         this.situacion = rangos.getSituacion();
     }
     
+    @Override
     public String getSituacion(){
         return this.situacion;
     }

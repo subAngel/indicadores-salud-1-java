@@ -24,6 +24,7 @@ public abstract class Usuario {
     private double estatura;
     private double peso;
     private RIMC rangosIMC;
+    private String situacion;
     
     public Usuario() {
 
@@ -110,6 +111,12 @@ public abstract class Usuario {
     }
     public double getPeso(){
         return this.peso;
+    }
+    public void setSituacion(){
+        this.situacion = "";
+    }
+    public String getSituacion(){
+        return this.situacion;
     }
     // IMC
     public double imc(){

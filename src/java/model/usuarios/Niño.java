@@ -23,11 +23,13 @@ public class Niño extends Usuario{
         return new IMCNiños();
     }
     
+    @Override
     public void setSituacion(){
         this.getRangoIMC().setSituacion(this.imc(), this.getEdad());
         this.situacion = this.getRangoIMC().getSituacion();
     }
     
+    @Override
     public String getSituacion(){
         return this.situacion;
     }
