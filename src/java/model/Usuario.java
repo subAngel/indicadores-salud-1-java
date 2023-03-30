@@ -4,6 +4,7 @@
  */
 package model;
 
+import calculos.factory.RIMC;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,18 +23,10 @@ public abstract class Usuario {
     private int edad;
     private double estatura;
     private double peso;
-
+    private RIMC rangosIMC;
+    
     public Usuario() {
 
-    }
-
-    public Usuario(Integer id, String nombre, String username, char sexo, Date fechaNac, String pass) {
-        this.idUser = id;
-        this.nombre = nombre;
-        this.username = username;
-        this.sexo = sexo;
-        this.fechaNacimiento = fechaNac;
-        this.password = pass;
     }
 
     public String getNombre() {
@@ -118,5 +111,10 @@ public abstract class Usuario {
     public double getPeso(){
         return this.peso;
     }
-
+    // IMC
+    public double imc(){
+        return this.peso / Math.pow(this.estatura, 2);
+    } 
+    // * abstract methods
+    public abstract RIMC getRangoIMC();
 }

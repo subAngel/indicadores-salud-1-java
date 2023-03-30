@@ -22,6 +22,4 @@ public abstract class RIMC {
     public double[] getRangos(){
         return this.rangos;
     }
-    
-    
 }
