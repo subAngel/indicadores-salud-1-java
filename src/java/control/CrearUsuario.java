@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Usuario;
+import model.usuarios.Adulto;
+import model.usuarios.Niña;
+import model.usuarios.Niño;
 
 /**
  *
@@ -40,7 +44,7 @@ public class CrearUsuario extends HttpServlet {
         try {
             HttpSession sesion = request.getSession();
             response.setContentType("text/html;charset=UTF-8");
-            Usuario user = new Usuario();
+            Usuario user;
             // variables obtenidas del formulario de registrar usuario
             String fullname = request.getParameter("fullname");
             String username = request.getParameter("usename");
@@ -49,9 +53,19 @@ public class CrearUsuario extends HttpServlet {
             Date fechanac = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fechanac"));
             double peso = Double.parseDouble(request.getParameter("peso"));
             double estatura = Double.parseDouble( request.getParameter("estatura"));
+            int edad = getEdad(fechanac);
+            // Crear el usuario FACTORY
+            if (sexo=='M' && edad < 18){
+                user = new Niña();
+            } else if(sexo=='H' && edad < 18){
+                user = new Niño();
+            } else {
+                user = new Adulto();
+            }
+            
             user.setIdUser(1);
-            user.setEdad(fechanac);
             user.setNombre(fullname);
+            user.setEdad(fechanac);
             user.setUsername(username);
             user.setPassword(password);
             user.setFechaNacimiento(fechanac);
@@ -65,6 +79,23 @@ public class CrearUsuario extends HttpServlet {
             Logger.getLogger(CrearUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    public int getEdad(Date fecha) {
+        Calendar fechaNacimiento = Calendar.getInstance();
+        //Se crea un objeto con la fecha actual
+        Calendar fechaActual = Calendar.getInstance();
+        //Se asigna la fecha recibida a la fecha de nacimiento.
+        fechaNacimiento.setTime(fecha);
+        //Se restan la fecha actual y la fecha de nacimiento
+        int año = fechaActual.get(Calendar.YEAR) - fechaNacimiento.get(Calendar.YEAR);
+        int mes = fechaActual.get(Calendar.MONTH) - fechaNacimiento.get(Calendar.MONTH);
+        int dia = fechaActual.get(Calendar.DATE) - fechaNacimiento.get(Calendar.DATE);
+        //Se ajusta el año dependiendo el mes y el día
+        if (mes < 0 || (mes == 0 && dia < 0)) {
+            año--;
+        }
+        //Regresa la edad en base a la fecha de nacimiento
+        return año;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
