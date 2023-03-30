@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Angel Jesus Zorrilla Cuevas
  */
-public class Usuario {
+public abstract class Usuario {
 
     private String nombre;
     private String username;
