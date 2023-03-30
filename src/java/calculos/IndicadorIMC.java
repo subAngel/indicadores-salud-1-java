@@ -11,7 +11,7 @@ package calculos;
  */
 public class IndicadorIMC extends IndicadoresSalud{
     private double estatura, peso, imc;
-//    private String situacion;
+    private String situacion;
     
     public IndicadorIMC(){
         super();
@@ -37,31 +37,17 @@ public class IndicadorIMC extends IndicadoresSalud{
         this.peso = peso;
     }
 
-//    public String getSituacion() {
-//        double imc = getIMC();
-//        if (imc >= 18.5 && imc <= 24.9) {
-//            return "PESO NORMAL";
-//        }
-//        if (imc >= 25.0 && imc <= 29.9) {
-//            return "SOBREPESO";
-//        }
-//        if (imc >= 30.0 && imc <= 34.9) {
-//            return "OBESIDAD GRADO I";
-//        }
-//        if (imc >= 35.0 && imc <= 39.9) {
-//            return "OBESIDAD GRADO II";
-//        }
-//        if (imc >= 40) {
-//            return "OBESIDAD GRADO III";
-//        }
-//        return "BAJO DE PESO";
-//    }
-    
     public void setIMC(double imc){
         this.imc = imc;
     }
     public double getIMC(){
         return this.imc;
+    }
+    public void setSituacion(String situacion){
+        this.situacion = situacion;
+    }
+    public String getSituacion(){
+        return this.situacion;
     }
     
     

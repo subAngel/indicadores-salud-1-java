@@ -10,16 +10,16 @@ package calculos.factory;
  * @author Angel Jesus Zorrilla Cuevas
  */
 public abstract class RIMC {
-    double[] rangos;
-    String situacion;
+    double[][] rangos;
+//    String situacion;
     
-    public abstract String getSituacion();
-    public abstract void setSituacion(double imc, int edad);
+//    public abstract String getSituacion();
+//    public abstract void setSituacion(double imc, int edad);
     
-    public void setRangos(double[] rangos){
-        this.rangos = rangos;
-    }
-    public double[] getRangos(){
+//    public void setRangos(double[][] rangos){
+//        this.rangos = rangos;
+//    }
+    public double[][] getRangos(){
         return this.rangos;
     }
 }

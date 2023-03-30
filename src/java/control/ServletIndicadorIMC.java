@@ -49,6 +49,7 @@ public class ServletIndicadorIMC extends HttpServlet {
         indicadorIMC.setEstatura(estatura);
         indicadorIMC.setPeso(peso);
         indicadorIMC.setIMC(user.imc());
+        indicadorIMC.setSituacion(user.getSituacion());
         indicadorIMC.setUsuario(user);
 
         sesion.setAttribute("indicadorIMC", indicadorIMC);

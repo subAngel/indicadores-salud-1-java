@@ -4,6 +4,7 @@
     Author     : Angel Jesus Zorrilla Cuevas
 --%>
 
+<%@page import="model.Usuario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="calculos.IndicadorIMC"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,6 +33,7 @@
         <h1>
             Resultados IMC
         </h1>
+        
         <table class="resultado">
             <thead>
                 <tr>
@@ -53,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>Situacion</td>
-                    <td><%= imc.getUsuario().getSituacion() %></td>
+                    <td><%= imc.getSituacion() %></td>
                 </tr>
                 <tr>
                     <td>Fecha</td>

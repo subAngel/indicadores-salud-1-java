@@ -14,7 +14,7 @@ import model.Usuario;
  */
 public class Niña extends Usuario {
 
-    public String situacion;
+//    public String situacion;
 
     public Niña() {
         super();
@@ -26,14 +26,19 @@ public class Niña extends Usuario {
     }
 
     @Override
-    public void setSituacion() {
-        RIMC rangos = getRangoIMC();
-        rangos.setSituacion(this.imc(), this.getEdad());
-        this.situacion = rangos.getSituacion();
+     public String getSituacion() {
+        int indiceEdad = this.getEdad() < 5 ? 0 : this.getEdad() < 10 ? 1 : this.getEdad() < 15 ? 2 : 3;
+        double [] rangos = getRangoIMC().getRangos()[indiceEdad];
+        if (this.imc() < rangos[0]) {
+            return "BAJO PESO";
+        } else if (imc() < rangos[1]) {
+            return "PESO NORMAL";
+        } else if (imc() < rangos[2]) {
+            return "SOBREPESO";
+        } else {
+            return "OBESIDAD";
+        }
+
     }
-    
-    @Override
-    public String getSituacion(){
-        return this.situacion;
-    }
+   
 }

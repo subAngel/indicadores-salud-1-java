@@ -10,7 +10,7 @@ package calculos.factory;
  */
 public class IMCNiños extends RIMC{
 
-   final double IMC_RANGOS[][] = {
+   double IMC_RANGOS[][] = {
         // de 2 a 5 anios
         {15, 18, 20},
         // de 5 a 10 anios 
@@ -25,25 +25,10 @@ public class IMCNiños extends RIMC{
         super();
     }
 
-    @Override
-    public String getSituacion() {
-        return this.situacion;
-    }
-
-    @Override
-    public void setSituacion(double imc, int edad) {
-        int indiceEdad = edad < 5 ? 0 : edad < 10 ? 1: edad < 15 ? 2 : 3;
-        double[] rangos = IMC_RANGOS[indiceEdad];
-        if (imc < rangos[0]){
-            this.situacion = "BAJO PESO";
-        } else if (imc < rangos[1]){
-            this.situacion = "PESO NORMAL";
-        } else if (imc < rangos[2]){
-            this.situacion = "SOBREPESO";
-        } else {
-            this.situacion = "OBESIDAD";
-        }
-    }
-
     
+
+    @Override
+    public double[][] getRangos(){
+        return IMC_RANGOS;
+    }
 }

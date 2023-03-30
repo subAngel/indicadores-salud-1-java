@@ -71,6 +71,7 @@ public class CrearUsuario extends HttpServlet {
             user.setFechaNacimiento(fechanac);
             user.setSexo(sexo);
             user.setEstatura(estatura);
+//            user.
             user.setPeso(peso);
             sesion.setAttribute("usuario", user);
             request.getRequestDispatcher("OpcionesIndicadores.jsp").forward(request, response);
