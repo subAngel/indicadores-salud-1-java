@@ -4,6 +4,7 @@
  */
 package calculos;
 
+import adapters.Fecha;
 import java.util.Date;
 import model.TipoActividad;
 import model.Usuario;
@@ -38,5 +39,12 @@ public abstract class IndicadoresSalud {
         this.usuario = usuario;
     }
     
-    
+    /*
+    Funcion que regresa una fecha cualquiera formateada
+    @param f fecha de Fecha
+    @return fecha formateada
+    */
+    public String getFecha(Fecha f){
+        return String.format("%d/%d/%d %d:%d", f.getDia(), f.getMes(), f.getDia(), f.getHora(), f.getMinuto());
+    }
 }
